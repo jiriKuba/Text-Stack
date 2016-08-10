@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <title>CTM popup page</title>
+  <style type="text/css">
+    body{
+      font-family:arial;
+    }
+    .empty-row{
+      background: #F7EECD;
+    }
+
+    .center-cell{
+      text-align: center;
+    }
+
+    .left-cell{
+      text-align: left;
+    }
+
+    td{
+      min-width: 100px;
+    }
+
+    button {
+      -moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+      -webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+      box-shadow:inset 0px 1px 3px 0px #91b8b3;
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+      background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+      background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+      background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+      background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+      background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+      background-color:#768d87;
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+      border-radius:5px;
+      border:1px solid #566963;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family:arial;
+      font-size:12px;
+      font-weight:bold;
+      text-decoration:none;
+      text-shadow:0px -1px 0px #2b665e;
+    }
+
+    button:hover {
+      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+      background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+      background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+      background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+      background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+      background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+      background-color:#6c7c7c
+    }
+    table {
+      font-family: verdana,arial,sans-serif;
+      font-size:11px;
+      color:#333333;
+      border-width: 1px;
+      border-color: #999999;
+      border-collapse: collapse;
+    }
+    table th {
+      background-color:#c3dde0;
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #a9c6c9;
+    }
+    table tr {
+      background-color:#d4e3e5;
+    }
+    table td {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #a9c6c9;
+    }
+    .evenrowcolor{
+      background-color:#c3dde0;
+    }
+  </style>
+  <script src="popup.js"></script>
+</head>
+<body>
+  <section id="main-section">
+    <table id="main-table">
+      <tr>
+        <th>To clipboard</th>
+        <th>Delete</th>
+        <th>Text</th> 
+        <th>Time</th>
+      </tr>
+    </table>
+  </section>
+</body>
+</html>
