@@ -40,21 +40,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app\background.js" />
+    <Content Include="app\buttons-core.css" />
+    <Content Include="app\buttons.css" />
     <Content Include="app\content_script.js" />
+    <Content Include="app\images\icon-128.png" />
+    <Content Include="app\images\icon-19.png" />
+    <Content Include="app\images\icon-38.png" />
     <Content Include="app\popup.html" />
     <Content Include="app\popup.js" />
+    <Content Include="app\tables.css" />
     <Content Include="Properties\build\lib\Ionic.Zip.DLL" />
     <Content Include="Properties\build\lib\MSBuild.ExtensionPack.dll" />
     <Content Include="index.htm" />
     <Content Include="Properties\build\ligershark.chrome.targets" />
     <Content Include="screenshots\readme.txt" />
     <Content Include="app\manifest.json" />
+    <Content Include="screenshots\TextStackScreenshot.jpg" />
+    <Content Include="bower.json" />
     <None Include="scripts\_references.js" />
     <None Include="scripts\chrome-api-vsdoc.js" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

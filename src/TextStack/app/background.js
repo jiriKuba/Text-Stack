@@ -1,7 +1,7 @@
 var textDatabase = null;
 
-chrome.commands.onCommand.addListener(function(command) {
-	if(command==="add-selected"){
+chrome.commands.onCommand.addListener(function (command) {
+    if (command === "add-selected") {
 		getPageSelection(null);
 	}
 	else if(command==="google-request"){
@@ -12,41 +12,41 @@ chrome.commands.onCommand.addListener(function(command) {
 	}
 });
 
-chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
-  if(message.method == 'getTextDatabase'){
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {    
+  if(message.method === 'getTextDatabase'){
   	sendResponse({data: textDatabase});
   }
-  else if(message.method == 'clearTextDatabase'){
+  else if(message.method === 'clearTextDatabase'){
   	clearArray(textDatabase);
   	sendResponse({data: textDatabase});
   }
   else if(message.method == 'eraseRowFromTextDatabase'){
   	var row = message.rowToErase;
-  	if(row !=='undefined')
+  	if (typeof row != 'undefined')
   		eraseRowFromDatabase(row, textDatabase);
 
   	sendResponse({data: textDatabase});
   }  
   else if(message.method == 'addRowToClipboard'){
   	var row = message.rowToClipboard;
-  	if(row !=='undefined')
+  	if (typeof row != 'undefined')
   		addRowToClipboard(row, textDatabase);
 
   	sendResponse({data: textDatabase});
   }  
-  else if(message.method == 'askGoogleRequest'){
+  else if(message.method === 'askGoogleRequest'){
   	sendGoogleRequest(textDatabase);
   	sendResponse({data: textDatabase});
   }
-  else if(message.method == 'allToClipboard'){
+  else if(message.method === 'allToClipboard'){
   	addAllToClipboard(textDatabase);
   	sendResponse({data: textDatabase});
   }
-  else if(message.method == 'getPageSelection'){
+  else if(message.method === 'getPageSelection'){
   	var callback = function(database) {
   		//has to be this way
     	chrome.runtime.sendMessage({method: "updatePopupDatabase",data: textDatabase}, function(response) {
-  			if(response !=='undefined'){
+    	    if (typeof response != 'undefined') {
     			if(response.data == true){
     				console.log("Popup was successfuly updated");
     			}
@@ -62,12 +62,12 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
 
 function getPageSelection(callback){
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  			chrome.tabs.sendMessage(tabs[0].id, {method: "getSelectedText"}, function(response) {
-  				if(response !=='undefined' && response.data!=''){
+  			chrome.tabs.sendMessage(tabs[0].id, {action: "getSelectedText"}, function(response) {
+  			    if (typeof response != 'undefined' && typeof response.data != 'undefined' && response.data != '') {
     				addTextToDatabase(response.data);
     				updateBadgeText(textDatabase.length.toString());
     				
-    				if(callback != null && callback !=='undefined'){
+    				if(typeof callback !='undefined' && callback != null){
 						callback();
 					}
   				}
@@ -94,7 +94,7 @@ function eraseRowFromDatabase(row, inputArray){
 
 function sendGoogleRequest(inputArray) {
 	if(inputArray!=null && inputArray.length > 0){
-  		var googleCall = 'http://www.google.com/search?q=' + inputArray.map(function(elem){ return elem.text; }).join("+");
+	    var googleCall = 'http://www.google.com/search?q=' + encodeURIComponent(inputArray.map(function(elem){ return elem.text; }).join(" "));
   		chrome.tabs.create({url: googleCall});
 
   		clearArray(textDatabase);	
@@ -125,7 +125,7 @@ function addTextToDatabase(text){
 	}
 
 	var date = new Date();
-	date = date.toLocaleString();
+	date = date.toLocaleTimeString();
 	var textObject = {text: text, date: date};
 	textDatabase[ind] = textObject;
 }

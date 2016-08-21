@@ -1,103 +1,58 @@
 <!doctype html>
 <html>
 <head>
-  <title>CTM popup page</title>
-  <style type="text/css">
-    body{
-      font-family:arial;
-    }
-    .empty-row{
-      background: #F7EECD;
-    }
+    <title>Text Stack</title>
+    <style type="text/css">
+        body{
+            margin: 0px;
+        }
+        .center-cell {
+            text-align: center;
+        }
 
-    .center-cell{
-      text-align: center;
-    }
+        .left-cell {
+            text-align: left;
+        }
 
-    .left-cell{
-      text-align: left;
-    }
+        .align-right {
+            text-align: right;
+        }
 
-    td{
-      min-width: 100px;
-    }
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: #ffffff !important;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
 
-    button {
-      -moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-      -webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-      box-shadow:inset 0px 1px 3px 0px #91b8b3;
-      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
-      background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-      background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-      background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-      background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-      background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
-      background-color:#768d87;
-      -moz-border-radius:5px;
-      -webkit-border-radius:5px;
-      border-radius:5px;
-      border:1px solid #566963;
-      display:inline-block;
-      cursor:pointer;
-      color:#ffffff;
-      font-family:arial;
-      font-size:12px;
-      font-weight:bold;
-      text-decoration:none;
-      text-shadow:0px -1px 0px #2b665e;
-    }
+        .button-success {
+            background: rgb(28, 184, 65) !important; /* this is a green */
+        }
 
-    button:hover {
-      background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
-      background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-      background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-      background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-      background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-      background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
-      background-color:#6c7c7c
-    }
-    table {
-      font-family: verdana,arial,sans-serif;
-      font-size:11px;
-      color:#333333;
-      border-width: 1px;
-      border-color: #999999;
-      border-collapse: collapse;
-    }
-    table th {
-      background-color:#c3dde0;
-      border-width: 1px;
-      padding: 8px;
-      border-style: solid;
-      border-color: #a9c6c9;
-    }
-    table tr {
-      background-color:#d4e3e5;
-    }
-    table td {
-      border-width: 1px;
-      padding: 8px;
-      border-style: solid;
-      border-color: #a9c6c9;
-    }
-    .evenrowcolor{
-      background-color:#c3dde0;
-    }
-  </style>
-  <script src="popup.js"></script>
+        .button-error {
+            background: rgb(202, 60, 60) !important; /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20) !important; /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221) !important; /* this is a light blue */
+        }
+    </style>
+    <link href="buttons-core.css" rel="stylesheet" type="text/css">
+    <link href="buttons.css" rel="stylesheet" type="text/css">
+    <link href="tables.css" rel="stylesheet" type="text/css">
+    <script src="popup.js"></script>
 </head>
 <body>
-  <section id="main-section">
-    <table id="main-table">
-      <tr>
-        <th>To clipboard</th>
-        <th>Delete</th>
-        <th>Text</th> 
-        <th>Time</th>
-      </tr>
-    </table>
-  </section>
+    <section id="main-section">
+        <table id="main-table" class="pure-table">
+
+        </table>
+    </section>
 </body>
 </html>
